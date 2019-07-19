@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= title
+    h2 This is the list of available books
+
+    div(class="menu")
+        h1 Alphabetical order
+        //-iterates through the value in the returned data from the book_controller page
+        ul
+            each val in (bookList)
+                - let title = val.title
+                - let author = val.author.first_name + " " + val.author.family_name
+                li #{title} - Written by: <strong>#{author}</strong>
+    
+    div(class="a")
+        h1 A
+        ul
+            each val in (bookList)
+                if (val.title.charAt(0)=== "A")
+                    li= val.title
+                

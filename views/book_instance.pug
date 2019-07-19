@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    h2 This is the list of available books
+
+    div(class="menu")
+        h1 Alphabetical order
+        //-iterates through the value in the returned data from the book_controller page
+        ul
+            each val in (bookInstance)
+                li= val.book.title
